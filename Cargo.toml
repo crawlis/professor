@@ -1,5 +1,5 @@
 [package]
-name = "module_base"
+name = "professor"
 version = "0.1.0"
 authors = ["donacrio <donatien.criaud@gmail.com>"]
 edition = "2018"
