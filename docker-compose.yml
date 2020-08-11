@@ -33,6 +33,10 @@ services:
     build:
       context: .
       dockerfile: ./dockerfiles/generic-module-debug.Dockerfile
+      args:
+        - MODULE_NAME=planner
+        - MODULE_TAG=v0.1.0
+        - MODULE_TARGET=x86_64-unknown-linux-musl
     environment:
       - NATS_URI=nats://nats:4222
       - DATABASE_URI=postgresql://postgres:password@database/keeper
@@ -48,7 +52,6 @@ services:
     environment:
       - DATABASE_URI=postgresql://postgres:password@database/keeper
     depends_on:
-      - nats
       - database
 
   nats:

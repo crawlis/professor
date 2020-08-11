@@ -1,4 +1,5 @@
 use crate::persistence::database;
+use std::error;
 
 pub struct ProfessorConfig {
     database_uri: String,
@@ -16,8 +17,11 @@ pub struct Professor {
 }
 
 impl Professor {
-    fn new(config: ProfessorConfig) -> Professor {
+    pub fn new(config: ProfessorConfig) -> Professor {
         let database = database::Database::new(&config.database_uri);
         Professor { config, database }
+    }
+    pub async fn run(&self) -> Result<(), Box<dyn error::Error>> {
+        Ok(())
     }
 }
